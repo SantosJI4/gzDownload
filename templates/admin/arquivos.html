@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crie seu registro completo | Guloz</title>
+</head>
+<body>
+<h1>Crie um Novo Registro</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div style="margin-bottom: 20px;">
+            {% for category, message in messages %}
+                <div style="padding: 10px; border: 1px solid #ccc; background-color: {% if category == 'success' %}#d4edda{% elif category == 'danger' %}#f8d7da{% else %}#fff3cd{% endif %}; color: {% if category == 'success' %}#155724{% elif category == 'danger' %}#721c24{% else %}#856404{% endif %}; margin-bottom: 5px; border-radius: 5px;">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<form action="{{ url_for('admin_arquivos') }}" method="POST" enctype="multipart/form-data">
+    
+    <div style="margin-bottom: 15px;">
+        <label for="nome" style="display: block; margin-bottom: 5px;">Título do Registro:</label>
+        <input type="text" id="nome" name="nome" required style="width: 100%; max-width: 400px; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="arquivo_principal" style="display: block; margin-bottom: 5px;">Selecione o Arquivo Principal (ex: .pdf, .docx, .zip):</label>
+        <input type="file" id="arquivo_principal" name="arquivo_principal" required style="width: 100%; max-width: 400px; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="arquivo_foto" style="display: block; margin-bottom: 5px;">Selecione a Foto de Capa (opcional, .jpg, .png):</label>
+        <input type="file" id="arquivo_foto" name="arquivo_foto" accept="image/*" style="width: 100%; max-width: 400px; padding: 8px;">
+    </div>
+
+    <button type="submit" style="padding: 10px 20px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px;">Criar Registro Completo</button>
+</form>
+</body>
+</html>

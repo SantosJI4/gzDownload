@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem sou eu | Guloz</title>
+    <style>
+        /* --- ESTILO RETRÔ ANOS 2000 (WAP/JAVA STYLE) --- */
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Cabeçalho clássico em bloco de cor sólida */
+        .header {
+            background-color: #0055A5; /* Mesmo azul do download */
+            color: #FFFFFF;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            border-bottom: 2px solid #003366;
+        }
+
+        /* Subtítulos de seções */
+        .secao-titulo {
+            background-color: #EFEFEF;
+            color: #333333;
+            padding: 5px;
+            font-weight: bold;
+            border-bottom: 1px solid #CCCCCC;
+            margin: 10px 0 5px 0;
+        }
+
+        /* Container do texto e perfil */
+        .conteudo {
+            padding: 8px;
+            line-height: 1.4;
+        }
+
+        /* Estilo do Avatar Retrô */
+        .avatar-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .avatar {
+            width: 96px;   /* Tamanho clássico de avatar antigo */
+            height: 96px;
+            object-fit: cover;
+            border: 2px solid #999999;
+            padding: 2px;
+            background-color: #FFFFFF;
+        }
+
+        /* Estilo da lista de links/redes sociais */
+        ul.lista-redes {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul.lista-redes li {
+            border-bottom: 1px solid #E0E0E0;
+            padding: 6px 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        ul.lista-redes li:nth-child(even) {
+            background-color: #F9F9F9;
+        }
+
+        /* Mini ícone ao lado dos links das redes */
+        .mini-icone {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+        }
+
+        /* Links no padrão internet antiga */
+        .link-rede {
+            color: #0000CC;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .link-rede:visited {
+            color: #551A8B;
+        }
+
+        .link-rede:hover {
+            color: #FF0000;
+        }
+
+        /* Links do menu de navegação inferior */
+        .menu-navegacao {
+            margin: 15px 8px;
+            font-weight: bold;
+        }
+
+        /* Rodapé simples */
+        .footer {
+            background-color: #333333;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 8px;
+            font-size: 11px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        👤 Guloz WAP - Perfil do Admin
+    </div>
+
+    <p class="secao-titulo">Quem sou eu?</p>
+    
+    <div class="conteudo">
+        <div class="avatar-container">
+            <img src="{{ url_for('static', filename='fotos/channels4_profile.jpg') }}" class="avatar" alt="Guloz Avatar">
+        </div>
+
+        <p>Olá! Eu sou o Guloz, um entusiasta de tecnologia e criador deste site de downloads. Minha paixão por jogos e arquivos me levou a criar este espaço para compartilhar conteúdo interessante e útil com a comunidade.</p>
+        <p>Desde jovem, sempre fui fascinado por jogos e tecnologia. Com o tempo desenvolvi habilidades em programação e design, o que me permitiu criar este site para oferecer uma experiência de download fácil e agradável para os usuários.</p>
+        <p>Meu objetivo é fornecer uma plataforma confiável onde as pessoas possam encontrar jogos e arquivos de qualidade, além de compartilhar minha paixão por tecnologia e entretenimento digital.</p>
+    </div>
+
+    <p class="secao-titulo">Minhas Redes / Canais</p>
+    
+    <ul class="lista-redes">
+        <li>
+            <span class="mini-icone">🔗</span>
+            <a href="#" class="link-rede" target="_blank">[ Linktree / Links Gerais ]</a>
+        </li>
+        <li>
+            <span class="mini-icone">📺</span>
+            <a href="https://www.youtube.com/@GuloZ47" class="link-rede" target="_blank">[ Meu Canal no YouTube ]</a>
+        </li>
+        <li>
+            <span class="mini-icone">💻</span>
+            <a href="https://github.com/SantosJI4" class="link-rede" target="_blank">[ Meu GitHub (Projetos) ]</a>
+        </li>
+    </ul>
+
+    <div class="menu-navegacao">
+        <a href="/" class="link-rede">&lt;&lt; Voltar para a Home</a>
+    </div>
+
+    <div class="footer">
+        &copy; 2004-2026 GuloZ
+    </div>
+
+</body>
+</html>

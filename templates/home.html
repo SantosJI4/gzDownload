@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guloz Downloads - Jogos e Arquivos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='fotos/favicoj.png') }}" type="image/x-icon">
+</head>
+<body>
+
+    <div class="header">
+        🎲 Guloz WAP - Downloads Free
+    </div>
+    <p class="categoria-titulo">Arquivos Recentes / Últimos Uploads / <a class="link-download" href="/sobre-min/">Quem sou eu?</a></p>
+    <div style="background-color: #FFF3CD; border: 1px solid #FFEBAA; color: #856404; padding: 6px; margin: 8px; font-size: 12px; font-weight: bold;">
+        📢 [AVISO]: Novos jogos adicionados todas as sextas-feiras! Todos os arquivos foram testados e estão livres de vírus.
+    </div>
+
+    <div style="padding: 0 8px; margin-bottom: 10px; font-size: 12px; color: #555;">
+        • <b>Status do Portal:</b> <span style="color: green; font-weight: bold;">ONLINE</span><br>
+        • <b>Total de Downloads:</b> {{ registros|length }} arquivos disponíveis<br>
+        • <b>Compatibilidade:</b> .JAR / .JAD / .ZIP / .PNG
+    </div>
+
+    <div style="padding: 10px 8px; background-color: #FDFDFD; border-bottom: 1px dashed #DDDDDD;">
+        <b>Bem-vindo ao Guloz Downloads!</b><br>
+        <span style="color: #444;">
+            Este é o seu canto definitivo na web para baixar jogos clássicos, aplicativos leves e arquivos modificados. 
+            Navegue pelas categorias abaixo, clique e baixe direto para o seu PC ou celular. Sem protetores de link chatos!
+        </span>
+    </div>
+
+    <div style="padding: 8px; text-align: center; border-bottom: 1px solid #E0E0E0; background: #F5F5F5;">
+    <span style="background: #000; color: #00FF00; font-family: 'Courier New', monospace; padding: 2px 5px; font-weight: bold; font-size: 14px; border: 1px solid #333;">
+        048,291
+    </span> 
+    <span style="font-size: 11px; color: #666; margin-left: 5px;">visitas desde 2006</span>
+    </div>
+
+    <form action="/" method="GET" style="padding: 6px 8px; background: #FFF; border-bottom: 1px solid #E0E0E0; text-align: center; margin: 0;">
+        <input type="text" name="q" value="{{ request.args.get('q', '') }}" placeholder="Buscar arquivo ou jogo..." style="font-size: 12px; padding: 3px; width: 60%; font-family: Arial, sans-serif;">
+        <button type="submit" style="font-size: 12px; padding: 2px 6px; font-weight: bold; cursor: pointer;">Buscar</button>
+        
+        {% if request.args.get('q') %}
+            <br><a href="/" style="font-size: 11px; color: #FF0000; display: inline-block; margin-top: 4px;">[ Limpar Busca ]</a>
+        {% endif %}
+    </form>
+
+    <ul class="lista-downloads">
+        {% for registro in registros %}
+            <li>
+                {% if registro.caminho_foto %}
+                    <img src="/static/fotos/{{ registro.caminho_foto }}" class="mini-icone" alt="icon">
+                {% else %}
+                    <img src="https://via.placeholder.com/32/cccccc/000000?text=JAR" class="mini-icone" alt="icon">
+                {% endif %}
+                
+                <a href="/static/arquivos/{{ registro.caminho_arquivo }}" class="link-download" target="_blank">
+                    {{ registro.nome }}
+                </a>
+            </li>
+        {% else %}
+            <li style="color: #666; font-style: italic;">Nenhum jogo ou arquivo encontrado por aqui...</li>
+        {% endfor %}
+    </ul>
+
+    <div class="footer">
+        &copy; 2004-2026 Guloz Mobile - Powered by Flask
+    </div>
+
+</body>
+</html>
